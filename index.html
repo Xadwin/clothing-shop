@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de moda online con las últimas tendencias para Mujer">
+    <meta name="keywords" content="moda, ropa, mujer, estilo, accesorios, calzado, tendencias">
+    <meta name="autor" content="Bonitas by Yesica Barreto">
+    <title>Bonitas by Yesica Barreto</title>
+
+    <!--Styles-->
+    <link rel="preload" href="css/normalize.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    
+    <!--Favicon-->
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <!--Header-->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Bonitas Logo">
+            </div>
+            
+            <nav class="menu">
+                <ul class="main-menu">
+
+                    <li>
+                        <a href="index.html" class="active">Inicio</a>
+                    </li>
+
+                    <li><a href="#vestidos">Vestidos</a></li>
+                    <li><a href="#blusas">Blusas</a></li>
+                    <li><a href="#pantalones">Pantalones</a></li>
+                    <li><a href="#faldas">Faldas</a></li>
+                </ul>
+            </nav>
+
+            <div class="cart">
+                <a href="cart.html"><img src="img/cart.jpg" alt="Carrito de compras"></a>
+            </div>
+
+            <div class="menu-toggle" id="mobile-togle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <div class="banner-txt">
+                <h1>Bienvenidos a Bonitas</h1>
+                <p>Encuentra el mejor look para ti</p>
+                <a href="#" class="cta-button">Comprar Ahora</a>
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2>Descubre por Categorías</h2>
+            <div class="category-cards">
+                <div class="card">
+                    <img data-src="path-to-new-image-mujer.webp" alt="Vestidos" class="lazy">
+                    <h3>Vestidos</h3>
+                    <a href="#" class="category-button">Ver Más</a>
+                </div>
+                <div class="card">
+                    <img data-src="path-to-new-image-hombre.webp" alt="Blusas" class="lazy">
+                    <h3>Blusas</h3>
+                    <a href="#" class="category-button">Ver Más</a>
+                </div>
+                <div class="card">
+                    <img data-src="path-to-new-image-nino.webp" alt="Pantalones" class="lazy">
+                    <h3>Pantalones</h3>
+                    <a href="#" class="category-button">Ver Más</a>
+                </div>
+                <div class="card">
+                    <img data-src="path-to-new-image-nino.webp" alt="Faldas" class="lazy">
+                    <h3>Faldas</h3>
+                    <a href="#" class="category-button">Ver Más</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="productos-destacados" class="featured-products">
+            <h2>Productos Destacado</h2>
+            <div class="carousel">
+            <div class="carousel-track">
+                <!--Producto 1-->
+                <div class="carousel-item">
+                    <img src="img/vestidos/v2990617982288534429.jpg.png" alt="Producto 1">
+                    <h3>Vestido Rojo</h3>
+                    <p class="price">$20.000</p>
+                    <button class="add-to-cart">Agregar al Carrito</button>
+                </div>
+                <!--Producto 2-->
+                <div class="carousel-item">
+                    <img src="img/pantalones/p3323692008987581108.jpg.png" alt="Producto 2">
+                    <h3>Pantalon Negro</h3>
+                    <p class="price">$15.000</p>
+                    <button class="add-to-cart">Agregar al Carrito</button>
+                </div>
+                <!--Producto 3-->
+                <div class="carousel-item">
+                    <img src="img/blusas/b3284533454502525698.jpg.png" alt="Producto 3">
+                    <h3>Blusa Azul</h3>
+                    <p class="price">$5.000</p>   
+                    <button class="add-to-cart">Agregar al Carrito</button>               
+                </div>
+                <!--Producto 4-->
+                <div class="carousel-item">
+                    <img src="img/faldas/f2998952984869322757.jpg.png" alt=""> 
+                    <h3>Falda Negra</h3>
+                    <p class="price">$50.000</p>
+                    <button class="add-to-cart">Agregar al Carrito</button>
+                </div>
+                <!--Producto 5-->
+                <div class="carousel-item">
+                    <img src="img/vestidos/v3145697650623847835.jpg.png" alt="Producto 5">
+                    <h3>Vestido Negro</h3>
+                    <p class="price">$25.000</p>
+                    <button class="add-to-cart">Agregar al Carrito</button>
+                </div>
+                
+                <!--Mas productos-->
+                </div>
+                <!--Botones para moverse en el carrusel-->
+                <button class="carousel-prev">&#10094;</button>
+                <button class="carousel-next">&#10095;</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Politica de Privacidad</a></li>
+                    <li><a href="#">Terminos y Condiciones</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Síguenos</h4>
+                <ul>
+                    <li><a href="#"><img src="facebook.png" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="instagram.png" alt="Instagram"></a></li>
+                    <li><a href="#"><img src="x.png" alt="X"></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-payment">
+                <h4>Métodos de Pago</h4>
+                <ul>
+                    <li><img src="img/visa.png" alt="Visa"></li>
+                    <li><img src="img/mastercard.png" alt="Mastercard"></li>
+                    <li><img src="pse.png" alt="PSE"></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2024 Bonitas by Yesica Barreto. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
