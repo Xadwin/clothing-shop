@@ -184,15 +184,16 @@ nav ul li a.active {
 
 @media (max-width: 768px) {
     nav ul.main-menu {
-        display: none; /* Escondido en pantallas móviles inicialmente */
+        display: none;
         flex-direction: column;
         align-items: center;
         background-color: #333;
-        width: 0%;
+        width: 100%; 
         padding: 0;
         position: absolute;
-        top: 60px; /* Justo debajo del header */
+        top: 60px;
         left: 0;
+        transition: width 0.5s ease;
     }
 
     nav ul.active {
@@ -219,9 +220,6 @@ nav ul li a.active {
         justify-content: flex-start;
     }
 
-    .search-bar {
-        
-    }
 }
 
 /* ---------- Banner Section ---------- */
@@ -324,7 +322,7 @@ nav ul li a.active {
 }
 
 .category-button:hover {
-    background-color: var(--primary-colorr);
+    background-color: var(--primary-color);
 }
 
 .featured-products {
@@ -347,7 +345,17 @@ nav ul li a.active {
 .carousel-track {
     display: flex;
     gap: 20px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3 ease;
+    will-change: transform;
+}
+
+img.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+img.lazy.loaded {
+    opacity: 1;
 }
 
 .carousel-item {
