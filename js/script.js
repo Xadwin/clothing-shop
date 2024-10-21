@@ -53,6 +53,7 @@ document.querySelector('.carousel-prev').addEventListener('click', () => {
 // Touch swipe for mobile carousel navigation
 carousel.addEventListener('touchstart', handleTouchStart, false);
 carousel.addEventListener('touchmove', handleTouchMove, false);
+
 let xDown = null;
 
 function handleTouchStart(evt) {
@@ -64,11 +65,13 @@ function handleTouchMove(evt) {
     let xUp = evt.touches[0].clientX;
     let xDiff = xDown - xUp;
     if (xDiff > 0) {
+        // Deslizar a la izquierda
         document.querySelector('.carousel-next').click();
     } else {
+        // Deslizar a la derecha
         document.querySelector('.carousel-prev').click();
     }
-    xDown = null;
+    xDown = null; // Resetear la posición
 }
 
 // Wishlist Handling with Local Storage
@@ -95,5 +98,35 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, { rootMargin: '50px 0px', threshold: 0.01 });
+
+const searchButton = document.getElementById('search-button');
+
+searchButton.addEventListener('click', () => {
+    const query = document.querySelector('#search-bar input').value;
+    // Aquí puedes implementar la lógica para buscar productos
+    alert(`Buscando: ${query}`);
+});
+
+function showFeedback(message) {
+    const feedback = document.createElement('div');
+    feedback.textContent = message;
+    feedback.className = 'feedback-message';
+    document.body.appendChild(feedback);
+
+    setTimeout(() => {
+        feedback.remove();
+    }, 2000); // El mensaje se elimina después de 2 segundos
+}
+
+function addToWishlist(productId) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    if (!wishlist.includes(productId)) {
+        wishlist.push(productId);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        showFeedback('Producto añadido a la lista de deseos');
+    } else {
+        showFeedback('El producto ya está en la lista de deseos');
+    }
+}
 
 lazyImages.forEach((img) => observer.observe(img));
