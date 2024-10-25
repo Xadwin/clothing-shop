@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         index = (index + 1) % items.length;
         carouselTrack.style.transform = `translateX(-${index * 300}px)`;
     });
+
     document.querySelector('.carousel-prev').addEventListener('click', () => {
         index = (index - 1 + items.length) % items.length;
         carouselTrack.style.transform = `translateX(-${index * 300}px)`;
