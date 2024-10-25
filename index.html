@@ -23,33 +23,32 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="img/logo.jpg" alt="Bonitas Logo" loading="lazy">
+                <a href="index.html"aria-label="Ir a la página de inicio">
+                    <img src="img/logo.jpg" alt="Bonitas Logo" loading="lazy">
+                </a>
             </div>
-            
-            <nav class="menu">
+            <nav class="menu" aria-label="Menú principal">
                 <ul class="main-menu">
-
-                    <li>
-                        <a href="index.html" class="active">Inicio</a>
-                    </li>
-
+                    <li><a href="index.html" class="active">Inicio</a></li>
                     <li><a href="#vestidos">Vestidos</a></li>
                     <li><a href="#blusas">Blusas</a></li>
                     <li><a href="#pantalones">Pantalones</a></li>
                     <li><a href="#faldas">Faldas</a></li>
                 </ul>
             </nav>
-
             <div class="cart">
-                <a href="cart.html"><img src="img/cart.jpg" alt="Carrito de compras"></a>
+                <a href="cart.html" aria-label="Ir al carrito de compras">
+                    <img src="img/cart.jpg" alt="Carrito de compras">
+                </a>
             </div>
-
+            <div class="search-icon" id="search-icon" aria-label="Buscar productos">
+                🔍
+            </div>
             <div class="search-bar" id="search-bar">
-                <input type="text" placeholder="Buscar productos...">
-                <button id="search-button">🔍</button>
+                <input type="text" placeholder="Buscar productos..." aria-label="Buscar productos">
+                <button id="search-button" aria-label="Buscar">🔍</button>
             </div>
-
-            <div class="menu-toggle" id="mobile-togle">
+            <div class="menu-toggle" id="mobile-toggle" aria-label="Abrir menú móvil">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>

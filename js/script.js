@@ -26,6 +26,16 @@ searchIcon.addEventListener('click', () => {
     }
 });
 
+// Mostrar y ocultar la barra de búsqueda
+searchIcon.addEventListener('click', () => {
+    searchBar.classList.toggle('active');
+    if (searchBar.classList.contains('active')) {
+        searchBar.style.width = '200px'; 
+    } else {
+        searchBar.style.width = '0'; 
+    }
+});
+
 
 // Autoplay for carousel
 const carousel = document.querySelector('.carousel-track');
@@ -106,6 +116,28 @@ searchButton.addEventListener('click', () => {
     // Aquí puedes implementar la lógica para buscar productos
     alert(`Buscando: ${query}`);
 });
+
+function showFeedback(message) {
+    const feedback = document.createElement('div');
+    feedback.textContent = message;
+    feedback.className = 'feedback-message';
+    document.body.appendChild(feedback);
+
+    setTimeout(() => {
+        feedback.remove();
+    }, 2000); // El mensaje se elimina después de 2 segundos
+}
+
+function addToWishlist(productId) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    if (!wishlist.includes(productId)) {
+        wishlist.push(productId);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        showFeedback('Producto añadido a la lista de deseos');
+    } else {
+        showFeedback('El producto ya está en la lista de deseos');
+    }
+}
 
 function showFeedback(message) {
     const feedback = document.createElement('div');
