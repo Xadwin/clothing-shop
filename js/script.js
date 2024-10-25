@@ -44,17 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
     lazyImages.forEach((img) => observer.observe(img));
 
     // Carousel
-    let index = 0;
-    const items = document.querySelectorAll('.carousel-item');
-    const carouselTrack = document.querySelector('.carousel-track');
-
     document.querySelector('.carousel-next').addEventListener('click', () => {
-        index = (index + 1) % items.length;
-        carouselTrack.style.transform = `translateX(-${index * 300}px)`;
+        document.querySelector('.carousel').scrollBy({ left: 220, behavior: 'smooth' });
     });
-
+    
     document.querySelector('.carousel-prev').addEventListener('click', () => {
-        index = (index - 1 + items.length) % items.length;
-        carouselTrack.style.transform = `translateX(-${index * 300}px)`;
+        document.querySelector('.carousel').scrollBy({ left: -220, behavior: 'smooth' });
     });
 });
