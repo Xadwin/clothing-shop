@@ -1,13 +1,15 @@
 /*------------- Variables Globales ------------*/
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #343a40;
-    --accent-color: #f8f9fa;
-    --background-color: #f0f2f5;
+    --primary-color: #ff6b6b;
+    --secondary-color: #333;
+    --accent-color: #256fdf;
+    --background-color: #f9f9f9;
+    --dark-bg-color: #444;
     --text-color-light: #fff;
     --text-color-dark: #333;
-    --hover-color: #0056b3;
+    --hover-color: #ff4757;
     --border-radius: 8px;
+    --transition-speed: 0.3s;
 }
 
 /* Estilos generales */
@@ -17,10 +19,12 @@ body {
     padding: 0;
     background-color: var(--background-color);
     color: var(--text-color-dark);
+    line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 img {
@@ -32,13 +36,14 @@ img {
 a {
     text-decoration: none;
     color: var(--primary-color);
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 a:hover {
     color: var(--hover-color);
 }
 
+/* Botones */
 button {
     background-color: var(--primary-color);
     color: var(--text-color-light);
@@ -46,11 +51,19 @@ button {
     padding: 10px 20px;
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
 button:hover {
     background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+/* Efecto hover en las imágenes */
+img:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 /*---------- Estilos del Header ----------*/
@@ -62,13 +75,13 @@ header {
     top: 0;
     z-index: 100;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color var(--transition-speed);
 }
 
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
 }
 
 .logo img {
@@ -79,57 +92,96 @@ header {
     list-style: none;
     display: flex;
     gap: 30px;
-    align-items: center;
 }
 
 .main-menu li a {
     color: var(--text-color-light);
     text-transform: uppercase;
-    padding: 10px 15px;
     font-weight: 600;
+    padding: 10px 15px;
+    transition: color var(--transition-speed);
 }
 
-.main-menu li a:hover, 
+.main-menu li a:hover,
 .main-menu li a.active {
     color: var(--hover-color);
 }
 
-/*---------- Rediseño de la Sección Banner ----------*/
+.cart img {
+    height: 24px;
+    width: auto;
+}
+
+/* Menú móvil */
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .main-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--secondary-color);
+        top: 60px;
+        right: 0;
+        width: 100%;
+    }
+
+    .main-menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+    }
+}
+
+/* Banner */
 .banner {
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     background-image: url('img/baner.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-.banner-text {
-    text-align: center;
-    color: var(--text-color-light);
+.banner-txt {
+    color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color var(--transition-speed);
 }
 
-.banner-text h1 {
+.banner-txt h1 {
     font-size: 3.5rem;
-    margin-bottom: 10px;
 }
 
-.banner-text p {
+.banner-txt p {
     font-size: 1.5rem;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .cta-button {
-    background-color: var(--primary-color);
-    color: var(--text-color-light);
+    background-color: var(--secondary-co);
     padding: 12px 30px;
     border-radius: var(--border-radius);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
 .cta-button:hover {
@@ -137,17 +189,16 @@ header {
     transform: translateY(-5px);
 }
 
-/*---------- Estilos de las Categorías ----------*/
+/*---------- Categorías ----------*/
 .categories {
     padding: 60px 20px;
-    text-align: center;
     background-color: var(--background-color);
+    text-align: center;
 }
 
 .categories h2 {
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: var(--primary-color);
 }
 
 .category-cards {
@@ -157,11 +208,16 @@ header {
 }
 
 .card {
-    background-color: var(--text-color-light);
+    background-color: white;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
@@ -176,53 +232,58 @@ header {
     color: var(--text-color-dark);
 }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Botón de categoría */
 .category-button {
-    display: inline-block;
-    margin: 10px 0;
-    padding: 10px 20px;
     background-color: var(--primary-color);
-    color: var(--text-color-light);
+    color: white;
+    padding: 10px 20px;
     border-radius: var(--border-radius);
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-speed);
 }
 
 .category-button:hover {
     background-color: var(--hover-color);
 }
 
-/*---------- Estilos del Carrusel de Productos ----------*/
+/*---------- Carrusel ----------*/
 .featured-products {
     padding: 40px 0;
-    background-color: var(--background-color);
     text-align: center;
+    background-color: var(--background-color);
+}
+
+.carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .carousel-track {
     display: flex;
     gap: 20px;
-    overflow-x: scroll;
+    transition: transform var(--transition-speed);
 }
 
 .carousel-item {
     min-width: 300px;
-    background-color: var(--text-color-light);
+    background-color: white;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .carousel-item img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
     border-radius: var(--border-radius);
+}
+
+.carousel-item h3 {
+    margin: 15px 0;
+    font-size: 1.4rem;
+    color: var(--text-color-dark);
 }
 
 .carousel-item:hover {
@@ -230,26 +291,33 @@ header {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-item h3 {
-    font-size: 1.4rem;
-    color: var(--text-color-dark);
-    margin: 10px 0;
-}
-
-.carousel-item .price {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-}
-
-.add-to-cart {
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: var(--primary-color);
-    color: var(--text-color-light);
+    color: white;
+    border: none;
     padding: 10px;
-    border-radius: var(--border-radius);
     cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    transition: background-color var(--transition-speed);
 }
 
-/*---------- Estilos del Footer ----------*/
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: var(--hover-color);
+}
+
+.carousel-prev {
+    left: 20px;
+}
+
+.carousel-next {
+    right: 20px;
+}
+
+/*---------- Footer ----------*/
 footer {
     background-color: var(--secondary-color);
     color: var(--text-color-light);
@@ -274,6 +342,28 @@ footer {
     margin-bottom: 10px;
 }
 
-.footer-links ul li a:hover {
+.footer-links ul li a, .footer-social ul li a {
+    color: white;
+    transition: color var(--transition-speed);
+}
+
+.footer-links ul li a:hover, .footer-social ul li a:hover {
     color: var(--primary-color);
+}
+
+.footer-payment ul {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-payment ul li img {
+    width: 50px;
+    margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
 }

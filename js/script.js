@@ -36,30 +36,6 @@ searchIcon.addEventListener('click', () => {
     }
 });
 
-
-// Autoplay for carousel
-const carousel = document.querySelector('.carousel-track');
-let index = 0;
-let interval = setInterval(autoplayCarousel, 5000); // 5 seconds interval
-
-function autoplayCarousel() {
-    const items = document.querySelectorAll('.carousel-item');
-    index = (index + 1) % items.length;
-    carousel.style.transform = `translateX(-${index * 300}px)`; // Adjust based on item width
-}
-
-document.querySelector('.carousel-next').addEventListener('click', () => {
-    clearInterval(interval);
-    index = (index + 1) % document.querySelectorAll('.carousel-item').length;
-    carousel.style.transform = `translateX(-${index * 300}px)`;
-});
-
-document.querySelector('.carousel-prev').addEventListener('click', () => {
-    clearInterval(interval);
-    index = (index - 1 + document.querySelectorAll('.carousel-item').length) % document.querySelectorAll('.carousel-item').length;
-    carousel.style.transform = `translateX(-${index * 300}px)`;
-});
-
 // Touch swipe for mobile carousel navigation
 carousel.addEventListener('touchstart', handleTouchStart, false);
 carousel.addEventListener('touchmove', handleTouchMove, false);
@@ -160,5 +136,20 @@ function addToWishlist(productId) {
         showFeedback('El producto ya está en la lista de deseos');
     }
 }
+
+// Control del carrusel
+const carousel = document.querySelector('.carousel-track');
+let index = 0;
+const items = document.querySelectorAll('.carousel-item');
+
+document.querySelector('.carousel-next').addEventListener('click', () => {
+    index = (index + 1) % items.length;
+    carousel.style.transform = `translateX(-${index * 300}px)`;
+});
+
+document.querySelector('.carousel-prev').addEventListener('click', () => {
+    index = (index - 1 + items.length) % items.length;
+    carousel.style.transform = `translateX(-${index * 300}px)`;
+});
 
 lazyImages.forEach((img) => observer.observe(img));
