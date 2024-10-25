@@ -49,6 +49,7 @@ button {
     color: var(--text-color-light);
     border: none;
     padding: 10px 20px;
+    margin: 5px;
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
