@@ -320,7 +320,7 @@ header {
     overflow: hidden;
     scroll-behavior: smooth;
     gap: 20px;
-    width: 90%;
+    width: 100%;
 }
 
 .carousel-prev, .carousel-next {
@@ -352,12 +352,6 @@ header {
     transform: scale(1.05);
 }
 
-.product-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
 .product-info {
     padding: 15px;
     text-align: center;
@@ -366,6 +360,7 @@ header {
 .product-name {
     font-size: 1.2rem;
     color: #444;
+    margin: 10px 0;
 }
 
 .product-price {
@@ -444,6 +439,18 @@ header {
     100% {
       transform: translateX(0);
       opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+    
+    .product-card {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
 

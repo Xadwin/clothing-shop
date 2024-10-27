@@ -51,4 +51,5 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('.carousel-prev').addEventListener('click', () => {
         document.querySelector('.carousel').scrollBy({ left: -220, behavior: 'smooth' });
     });
+    
 });
