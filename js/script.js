@@ -51,5 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('.carousel-prev').addEventListener('click', () => {
         document.querySelector('.carousel').scrollBy({ left: -220, behavior: 'smooth' });
     });
+
+    // Menu movil 
+    const menuToggle = document.getElementById("mobile-toggle");
+    const mainMenu = document.querySelector(".main-menu");
+
+    menuToggle.addEventListener("click", () => {
+        mainMenu.classList.toggle("active");
+    });
     
 });
